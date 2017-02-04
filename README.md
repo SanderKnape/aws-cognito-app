@@ -7,7 +7,7 @@ This sample application shows some basic functionality written against [AWS Cogn
 * Resetting a forgotten password
 * Logout
 
-The application is written in PHP. I've tried to keep the code as simple as possible so that it can be used as an example for other languages as well. In addition, I have a written a blog post where I explain how to [get started with AWS Cognito](https://sanderknape.com/2017/02/getting-started-with-aws-cognito). There you will find more theory and background about how to implement AWS Cognito.
+The application is written in PHP. I've tried to keep the code as simple as possible so that it can be used as an example for other languages as well. In addition, I have written a blog post where I explain how to [get started with AWS Cognito](https://sanderknape.com/2017/02/getting-started-with-aws-cognito). There you will find more theory and background about how to implement AWS Cognito.
 
 The steps to get started are divided in two sections;
 
@@ -44,4 +44,4 @@ With the AWS Cognito user pool set up and the correct configuration added to the
 1. [Install Docker](https://docs.docker.com/engine/installation/) and [Install Docker Compose](https://docs.docker.com/compose/install/). As mentioned, it is recommended to run the application on an EC2 instance so you don't need AWS access credentials.
 2. Clone this repository: `git clone https://github.com/SanderKnape/aws-cognito-app.git`
 3. Cd into the git repository and spin up the application with `docker-compose up -d`.
-4. The applications is now running on port 80. Check it out! You will be able to create a user (with your correct e-mailaddress to receive the token), confirm the signup, login, and more.
+4. The application is now running on port 80. Check it out! You will be able to create a user (with your correct e-mailaddress to receive the token), confirm the signup, login, and more.

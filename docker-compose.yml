@@ -1,11 +1,8 @@
 version: '2'
 services:
   app:
-    container_name: aws-cognito-app
-    build: .
+    image: sanderknape/aws-cognito-app
     ports:
       - 80:80
-    volumes:
-      - ./app:/var/www
     env_file:
       - .env
