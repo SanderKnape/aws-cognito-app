@@ -1,0 +1,23 @@
+sudo: required
+
+language: php
+php:
+  - '7.1'
+
+services:
+  - docker
+
+env:
+  global:
+    - secure: a4pBN8ikp8XBymLDZMfIcEL2krLzHQiZJP/VJBBATiRmmZmVvfV6/dl1A6+NHy7oNYaDLvsyoEXOid+HmrH18sFIeMF4m0rZNtlbD3MEAHZGNfEA+utqyGeRxZ/JMXK6gHSA4XYng1xHer3QnSbMui7CdTipDjM3sMFicWrPoZRgcE/23rEBYA2xC/f2Aa+Ynvz1UZRiNMmsPfFD9/4OETWJoIRk7L506PCbafWZ/Gwf/WAHnSrDf+7YCOTMKp1sT3MvYN8jq9L0pNbRd9eL6toLVg0NkK/5xdy607uzd3P79j77/dESJuB8z1+9982c87UWYkCcP0s9oUQS9Wz+zMpmaEtTnq9/YNI51hFBTD0/JKwInTT5giscQjkYJu7FCS60p4qYx1digOpgavh4Q7t21vnYmOJlvnsCbuwd/fEMuo+DVV2dQQJOvKoxy4jg3Bs35WpZPdUt7/9UG7rUaMO5Bib/PNolEHO/TiWkwDm4WM3h3a1yCPkzF8ao+a3sKfO9UVT56OcstqMApXMNPqpenRyCyITtVcXB0TsWoo3Gj1bq05yBDg0827p3q8tejW4slOySO3DOIb2O8Cl05zbbmRlhKBPV447wVo01RD0jddmuTRfAAUh1yQZOjtLglLMGrsaD5/SJh4CYDS2Z844xl0zH08TkhwJv3kfX1NU=
+    - secure: dx7Hk50PHFdGFxZejGPkvnTZc3w7s70uSeJkdiYUjSq4VlDdsDiDxOD33d1RcgDvQvpY3c0GwR1XqglOCgPwTps/9f48jpKAOsLuc25A93fbBxQ4csayX4nQrRrR9ycBrB7s5iCz7MCwk/7B9R6NfnXoBDx5ymwgfVJf4BdMm+3wjblsxQZgxbYeB1bvPA8lfX8F7b1FS/aWWfLaQoKDmdAn9Nq91VnWzJsGHil7NdZ4DECS8HYNjuztIF5bH5Z/nVyVuYYGkG4uYTjJtWJCU37bEATHCxHdkRLYoJscnGh1oP9H/yDdbjqnGTnkV81s9i++tc7CFdSstvcSTcCc1YWl/EF2qBW4etjgXCQFY3OgCbZeAitP/I5RUz04ZWAu3E1rOeQ13OQ6s4j5HDm4GQwk6lBaJRq4MGqXwAOkNXAfcRrABIN0tgyuoaliM/B4oAHU90dqYZChv1QyTU96oS18t973sI7fPT8xKET2gLzvFjSVvgEkbB28uE+LZP6wuY/KWT/6PcukpvpJZyHYk+BVadM49BiBR/llH6cninBJc0+j2E/dblDfv+A2IFrBpjeYkjSoOavjh99nqA725bD+al+LV9bplk9CRwsDF9QfgkAlHUH8z6rgaZAkF69li0BzBzK3Y5B7LGtoDUG/eksZsDClTAdNUcUGIhoi1z4=
+
+install:
+  - composer install --working-dir app
+
+script: true
+
+after_success:
+  - docker build -t sanderknape/aws-cognito-app .
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push sanderknape/aws-cognito-app

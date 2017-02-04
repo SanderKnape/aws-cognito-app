@@ -1,0 +1,8 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "^3.21"
+    },
+    "autoload": {
+        "psr-4": {"AWSCognitoApp\\": "src"}
+    }
+}
